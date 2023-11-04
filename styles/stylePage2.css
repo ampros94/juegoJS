@@ -1,0 +1,221 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.container-page2{
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+.wrap-img1{   
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: block;
+}
+.wrap-img1 img{
+    width: 100%;
+}
+.wrap-img2{
+    display: none;
+}
+.wrap-img3{
+    display: none;
+}
+.filter{
+    position: absolute;
+    background: rgb(3,238,196);
+    background: linear-gradient(180deg, rgba(3,238,196,1) 0%, rgba(9,18,124,0) 25%, rgba(9,9,121,0) 75%, rgba(0,0,0,1) 100%);
+    width: 100%;
+    height: 100%;
+}
+.animation{
+    display: flex;
+    justify-content: center;
+    margin-top: 240px;
+}
+.diana{
+    position: absolute;
+    width: 150px;
+    animation-name: animation;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+@keyframes animation{
+    0%{
+        opacity: 0%;
+        height: 0;
+    }
+    100%{
+        opacity: 100%;
+        height: 270px;
+    }
+}
+.container-buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 190px;
+}
+.button-restart{
+    position:absolute;
+    width: 240px;
+    height: 60px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    background-color: #6A0073;
+    color: #fff;
+    font-family: Integral CF;
+    font-size: 27px;
+    font-weight: 700;
+    box-shadow: 4px 4px 5px 4px #0000007A;
+    margin-top: 30px;
+}
+.wrap-shoot{
+    width: 128px;
+    height: 128px;
+    overflow: hidden;
+    margin-top: -35px;
+    /* margin-top: -35px;
+    display: flex;
+    position: absolute;
+    animation: shoot 1s steps(4);
+    transform: scale(3); */
+}
+.shoot{
+    width: 128px;
+    height: 512px;
+    transform: translateY(25%);
+}
+.frame{
+    width: 128px;
+    height: 128px;
+}
+@keyframes shoot {
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: -128px;
+    }
+}
+.begin-game{
+    position: relative;
+    width: 240px;
+    height: 60px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    background-color: #6A0073;
+    color: #fff;
+    font-family: Integral CF;
+    font-size: 27px;
+    font-weight: 700;
+    box-shadow: 4px 4px 5px 4px #0000007A;
+}
+.name_box{
+    position: relative;
+    background-color: #397300;
+    width: 100px;
+    padding: 20px 0;
+    text-align: center;
+    border-radius: 20px;
+    border: 2px solid white;
+    color: white;
+    font-family: Integral CF ;
+    
+}
+.gun{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    display: flex;
+}
+.iniciar{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+}
+.imgGun{
+    width: 300px;
+    position: relative;
+}
+.button-shoot{
+    width: 240px;
+    height: 60px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    background-color: #397300;
+    color: #fff;
+    font-family: Integral CF;
+    font-size: 27px;
+    font-weight: 700;
+    box-shadow: 4px 4px 5px 4px #0000007A;
+    margin-top: -130px;
+    position: relative;
+}
+/* tablet */
+@media (min-width: 426px){
+    .wrap-img1{
+        display: none;
+    }
+    .wrap-img3{
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container-buttons{
+        gap: 190px;
+    }
+    .wrap-img2{
+        display: none;
+    }
+}
+
+/* escritorio */
+@media (min-width: 1024px){
+    .wrap-img2{
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .wrap-img3{
+        display: none;       
+    }
+    .wrap-img1{
+        display: none;
+    }
+    .container-buttons{
+        gap:190px;
+    }
+}
+/* escritorio L */
+@media (min-width:1440px){
+    .container-buttons{
+        gap: 190px;
+    }
+    .wrap-img2{
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

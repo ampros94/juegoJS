@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PolygonCIA</title>
+    <link rel="stylesheet" href="./../styles/stylePage2.css">
+    <script src="https://kit.fontawesome.com/7d5b9ddb55.js" crossorigin="anonymous"></script>
+    <script type="module" src="./../js/js.mjs"></script>
+</head>
+<body>
+    <section class="container-page2" id="container-page2">
+        <img class="wrap-img1" src="./../resources/fondo-mobil.png" alt="">
+        <img class="wrap-img2" src="./../resources/fondo-escritorio.png" alt="">
+        <img class="wrap-img3" src="./../resources/fondo-tablet.png" alt="">
+        <div class="filter"></div>
+        <div class="container-buttons">
+            <button class="button-restart" id="button-restart">
+                <i class="fa-solid fa-repeat" style="color: #ffffff;"></i>
+                Reiniciar
+            </button>
+            <div class="animation" id="animation">
+                <img class="diana" id="diana" src="./../resources/silueta1-02.png" alt="">
+                <ul class="name_box" id="name_box"><li>name</li></ul>
+                <p class="name" id="name"></p>
+            </div>
+            <div class="gun">
+                <div class="wrap-shoot" id="wrap-shoot">
+                    <div class="shoot" id="shoot">
+                        <img class="frame" src="./../resources/SP103_nyknck/SP103_nyknck/SP103_01.png" alt="">
+                        <img class="frame" src="./../resources/SP103_nyknck/SP103_nyknck/SP103_02.png" alt="">
+                        <img class="frame" src="./../resources/SP103_nyknck/SP103_nyknck/SP103_03.png" alt="">
+                        <img class="frame" src="./../resources/SP103_nyknck/SP103_nyknck/SP103_04.png" alt="">
+                    </div>
+                </div>
+                <img class="imgGun" src="./../resources/gun.png" alt="">
+                <button class="button-shoot" id="button-shoot">
+                    Disparar 
+                    <i class="fa-solid fa-gun" style="color: #ffffff;"></i>
+                </button>
+            </div>
+        </div>
+
+    </section>
+    
+        <script>
+     
+        const playersString = localStorage.getItem("players");
+        let players = JSON.parse(playersString);
+        console.log(players)
+        // animacion
+        const buttonShoot = document.getElementById("button-shoot");
+        const shoot = document.getElementById("shoot");
+
+         
+              
+        buttonShoot.addEventListener("click", () => {
+            const jugador = document.getElementById("name_box");
+            var elemento1 = document.getElementsByTagName('li')[0];
+            jugador.removeChild(elemento1)
+            const jugador_disparando = document.createElement("li")
+            let actual = players[0];
+            jugador_disparando.textContent = actual; 
+            jugador.appendChild(jugador_disparando)
+            shoot.animate(
+                [
+                { transform: "translateY(25%)" },
+                { transform: "translateY(-25%)" },
+                { transform: "translateY(-50%)" },
+                { transform: "translateY(-75%)" },
+                { transform: "translateY(-100%)" },
+                ],
+                { duration: 100, direction: "normal", easing: "linear" }
+            );
+            players.shift();
+            
+            if(players.length === 0){
+                window.location.href = "./../pages/page3.html";
+            }
+        });
+    </script>
+    
+</body>
+</html>

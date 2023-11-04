@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PolygonCIA</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <script src="https://kit.fontawesome.com/7d5b9ddb55.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section class="container" id="container">
+        <div class="wrap-img">
+            <img src="../resources/fondo-escritorio.png" alt="">
+        </div>
+        <div class="card" id="card">
+            <h1 class="title" id="title">
+                Bienvenido al campo de tiro de la
+            </h1>
+            <h2 class="CIA" id="CIA">
+                CIA
+            </h2>
+            <p>
+                Agrega los nombres.
+            </p>
+            <div class="inputI">
+                <input type="text" class="input" id="input">
+                <i id="addPlayer" class="fa-solid fa-user-plus" style="color: #ffffff;"></i>
+            </div>
+            <div class="list" id="list">
+                <ul class="list-group" id="list-group"></ul>
+            </div>
+            <button class="button-play" id="button-play" disabled>
+                JUGAR
+            </button>
+        </div>
+    </section>
+
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function () {
+            const inputElement = document.getElementById("input");
+            const listElement = document.getElementById("list-group");
+            const buttonPlay = document.getElementById("button-play");
+            
+            
+            const names = [];
+            
+           function validacion_max_names(names){
+                if (names.length>=1){
+                    document.getElementById("button-play").disabled = false;
+                }
+           }
+        
+            function updateList() {
+                listElement.innerHTML = ""; 
+                console.log(names)
+                names.forEach((name, index) => {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = name;
+                    console.log(listItem)
+                    
+                    
+                    
+                    listElement.appendChild(listItem);
+                });
+            }
+            
+        
+            document.getElementById("addPlayer").addEventListener("click", function () {
+                const playerName = inputElement.value;
+                if (playerName.trim() !== "") {
+                    console.log("nombre agregado",playerName)
+                    names.push(playerName);
+                    validacion_max_names(names)
+                    inputElement.value = ""; 
+                    updateList();
+                }
+            });
+            
+            
+            buttonPlay.addEventListener("click", function () {
+                
+                console.log("JUGAR button clicked");
+                updateList()
+                    
+            });
+            function jugar(){
+                localStorage.setItem("players", JSON.stringify(names))
+                window.location.href = "./index.html"
+            }
+            document.getElementById("button-play").addEventListener("click", jugar)
+
+            
+            
+        });
+        
+    </script>
+</body>
+</html>

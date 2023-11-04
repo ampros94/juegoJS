@@ -1,0 +1,107 @@
+*{
+    padding: 0;
+    margin: 0;
+    --margin-inputs: 50px;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+.wrap-img img{
+    filter: blur(4px) brightness(50%);
+    width: 100%;
+}
+.wrap-img{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    position: relative;
+    background-color: #6A0073;
+    width: calc(100% - 60px);
+    height: calc(100vh - 60px);
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    box-shadow: 4px 4px 5px 4px #0000007A;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    font-family: Integral CF;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 34px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+.input{
+    width: 100%;
+    height: 34px;
+    /* margin-top: 20px; */
+    border-radius: 5px;
+    border: 0;
+}
+.inputI{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - (var(--margin-inputs) * 2));
+    margin: 0px var(--margin-inputs);
+    min-width: 200px;
+}
+i{
+    margin-left: 10px;
+    cursor: pointer;
+}
+.list{
+    width: calc(100% - (var(--margin-inputs) * 2));
+    margin: 0px var(--margin-inputs);
+    /* display: none; */
+}
+.list-group{
+    width: 100%;
+    min-width: 150px;
+    height: 130px;
+    background: #fff;
+    border-radius: 10px;
+    overflow-y: auto;
+    color: black;
+}
+.button-play{
+    width: 187px;
+    height: 50px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    background-color: #397300;
+    color: #fff;
+    font-family: Integral CF;
+    font-size: 27px;
+    font-weight: 700;
+    box-shadow: 4px 4px 5px 4px #0000007A;
+}
+
+@media (min-width:768px) {
+    .card{
+        width: 566px;
+    }
+
+}
+@media (max-width:544px){
+    .card{
+        font-size: 17px;
+        gap: 10px;
+        height: auto;
+    }
+}
